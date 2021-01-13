@@ -1,0 +1,22 @@
+
+<label for="filter"></label>
+<input type="text" id="filter" name="filter" [(ngModel)]="filter" placeholder="Filter your to-dos">
+  
+    <ol>
+
+    <li *ngFor="let tsk of getFilteredResults(); index as i">
+
+        <span *ngIf="tsk.completed" ><button class="complete" (click)="isCompleted($event)">Complete</button></span>
+        
+        <span [ngClass]="{strikethrough: !tsk.completed}"> {{tsk.task}} </span>
+        
+        <button class="delete">x</button>
+    
+    </li>
+   </ol>
+
+   <label for="Add"></label>
+    <input type="text" id="add" name="add" placeholder="Add your to-do">
+
+    <button type="submit" id="add-button">Add</button>
+    
